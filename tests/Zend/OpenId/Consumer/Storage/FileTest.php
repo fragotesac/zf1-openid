@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_OpenId_Consumer_Storage_File
- */
-require_once 'Zend/OpenId/Consumer/Storage/File.php';
 
 /**
  * @category   Zend

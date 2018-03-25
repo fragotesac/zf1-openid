@@ -20,11 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * Zend_OpenId
- */
-require_once 'Zend/OpenId/Provider/User/Session.php';
-
 
 /**
  * @category   Zend

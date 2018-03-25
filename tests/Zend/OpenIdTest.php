@@ -20,16 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * Zend_OpenId
- */
-require_once 'Zend/OpenId.php';
-
-/**
- * Zend_OpenId_ResponseHelper
- */
-require_once 'Zend/OpenId/ResponseHelper.php';
-
 
 /**
  * @category   Zend
