@@ -1,0 +1,5 @@
+/vendor
+/composer.lock
+/clover.xml
+/tests/Zend/OpenId/_files/*
+/tests/Zend/OpenId/Provider/Storage/_files/*
