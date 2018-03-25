@@ -13,7 +13,6 @@
     "require": {
         "php": ">=7.0.0",
         "diablomedia/zendframework1-exception": "^1.0.0",
-        "diablomedia/zendframework1-controller": "*",
         "diablomedia/zendframework1-crypt": "^1.0.0",
         "diablomedia/zendframework1-controller": "*",
         "diablomedia/zendframework1-http": "*",
