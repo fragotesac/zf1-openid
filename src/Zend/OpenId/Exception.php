@@ -34,7 +34,7 @@ class Zend_OpenId_Exception extends Zend_Exception
     /**
      * The specified digest algotithm is not supported by this PHP installation
      */
-    const UNSUPPORTED_DIGEST    = 1;
+    const UNSUPPORTED_DIGEST = 1;
 
     /**
      * The long math arithmetick is not supported by this PHP installation
@@ -44,10 +44,10 @@ class Zend_OpenId_Exception extends Zend_Exception
     /**
      * Internal long math arithmetic error
      */
-    const ERROR_LONG_MATH       = 3;
+    const ERROR_LONG_MATH = 3;
 
     /**
      * Iternal storage error
      */
-    const ERROR_STORAGE         = 4;
+    const ERROR_STORAGE = 4;
 }

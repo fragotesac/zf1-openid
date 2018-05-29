@@ -1,4 +1,7 @@
 parameters:
+    excludes_analyse:
+        - %rootDir%/../../../vendor/*
+        - %rootDir%/../../../tests/*
     bootstrap: %rootDir%/../../../phpstan-bootstrap.php
     ignoreErrors:
         - '#Access to an undefined property Zend_Session_Namespace::\$.+\.#'
@@ -8,3 +11,6 @@ parameters:
         # Abstract returns void, but File returns bool
         - '#Result of method Zend_OpenId_Consumer_Storage::addAssociation\(\) \(void\) is used\.#'
         - '#Method Zend_OpenId_Consumer::_addAssociation\(\) with return type void returns void but should not return anything\.#'
+        # These are passed by reference, so are basically being defined here. Could define them earlier, but don't want to change behavior
+        - '#Undefined variable: \$server#'
+        - '#Undefined variable: \$discovered_version#'

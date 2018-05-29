@@ -49,7 +49,7 @@ class Zend_OpenId_Provider_User_Session extends Zend_OpenId_Provider_User
     public function __construct(Zend_Session_Namespace $session = null)
     {
         if ($session === null) {
-            $this->_session = new Zend_Session_Namespace("openid");
+            $this->_session = new Zend_Session_Namespace('openid');
         } else {
             $this->_session = $session;
         }
@@ -90,5 +90,4 @@ class Zend_OpenId_Provider_User_Session extends Zend_OpenId_Provider_User
         unset($this->_session->logged_in);
         return true;
     }
-
 }
