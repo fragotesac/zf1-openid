@@ -406,9 +406,9 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
         $this->assertSame(array(), $response->getRawHeaders());
         $headers = $response->getHeaders();
         $this->assertInternalType('array', $headers);
-        $this->assertSame(1, count($headers));
+        $this->assertCount(1, $headers);
         $this->assertInternalType('array', $headers[0]);
-        $this->assertSame(3, count($headers[0]));
+        $this->assertCount(3, $headers[0]);
         $this->assertSame('Location', $headers[0]['name']);
         $this->assertSame('http://www.test.com/', $headers[0]['value']);
         $this->assertSame(true, $headers[0]['replace']);
@@ -592,7 +592,7 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
             );
             $dh_details = Zend_OpenId::getDhKeyDetails($dh);
             $this->assertInternalType('array', $dh_details);
-            $this->assertSame(4, count($dh_details));
+            $this->assertCount(4, $dh_details);
             $this->assertSame('0233', bin2hex($dh_details['p']));
             $this->assertSame('05', bin2hex($dh_details['g']));
             $this->assertSame('09', bin2hex($dh_details['priv_key']));
@@ -605,7 +605,7 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
             );
             $dh_details = Zend_OpenId::getDhKeyDetails($dh);
             $this->assertInternalType('array', $dh_details);
-            $this->assertSame(4, count($dh_details));
+            $this->assertCount(4, $dh_details);
             $this->assertSame('0233', bin2hex($dh_details['p']));
             $this->assertSame('02', bin2hex($dh_details['g']));
             $this->assertSame('09', bin2hex($dh_details['priv_key']));
@@ -617,7 +617,7 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
             );
             $dh_details = Zend_OpenId::getDhKeyDetails($dh);
             $this->assertInternalType('array', $dh_details);
-            $this->assertSame(4, count($dh_details));
+            $this->assertCount(4, $dh_details);
             $this->assertSame('0233', bin2hex($dh_details['p']));
             $this->assertSame('02', bin2hex($dh_details['g']));
             $this->assertInternalType('string', $dh_details['priv_key']);

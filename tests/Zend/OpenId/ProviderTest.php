@@ -247,7 +247,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
 
         $trusted = $storage->getTrustedSites(self::USER);
         $this->assertInternalType('array', $trusted);
-        $this->assertSame(1, count($trusted));
+        $this->assertCount(1, $trusted);
         reset($trusted);
         $this->assertSame('http://www.test.com/', key($trusted));
         $this->assertSame(true, current($trusted));
@@ -257,7 +257,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
 
         $trusted = $storage->getTrustedSites(self::USER);
         $this->assertInternalType('array', $trusted);
-        $this->assertSame(1, count($trusted));
+        $this->assertCount(1, $trusted);
         reset($trusted);
         $this->assertSame('http://www.test.com/', key($trusted));
         $this->assertSame(true, current($trusted));
@@ -268,7 +268,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
 
         $trusted = $storage->getTrustedSites(self::USER);
         $this->assertInternalType('array', $trusted);
-        $this->assertSame(1, count($trusted));
+        $this->assertCount(1, $trusted);
         reset($trusted);
         $this->assertSame('http://www.test.com/', key($trusted));
         $this->assertSame(array('Zend_OpenId_Extension_Sreg' => array('nickname' => 'test_id')), current($trusted));

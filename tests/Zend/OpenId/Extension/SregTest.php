@@ -155,12 +155,12 @@ class Zend_OpenId_Extension_SregTest extends PHPUnit\Framework\TestCase
         $ext  = new Zend_OpenId_Extension_Sreg();
         $data = array();
         $this->assertTrue($ext->getTrustData($data));
-        $this->assertSame(1, count($data));
+        $this->assertCount(1, $data);
         $this->assertSame(array(), $data['Zend_OpenId_Extension_Sreg']);
         $ext  = new Zend_OpenId_Extension_Sreg(array('nickname' => true,'email' => false));
         $data = array();
         $this->assertTrue($ext->getTrustData($data));
-        $this->assertSame(1, count($data));
+        $this->assertCount(1, $data);
         $this->assertSame(array('nickname' => true,'email' => false), $data['Zend_OpenId_Extension_Sreg']);
     }
 
