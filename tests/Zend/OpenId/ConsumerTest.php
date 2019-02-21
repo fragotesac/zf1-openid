@@ -298,7 +298,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            "Connection: close\r\n" .
                            "Accept-encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n\r\n",
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
 
         // Test POST request without parameters
@@ -311,7 +311,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            "Content-Type: application/x-www-form-urlencoded\r\n" .
                            "User-Agent: Zend_OpenId\r\n" .
                            "Content-Length: 0\r\n\r\n",
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
 
         // Test GET request with parameters
@@ -322,7 +322,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            "Connection: close\r\n" .
                            "Accept-encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n\r\n",
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
 
         // Test POST request with parameters
@@ -336,7 +336,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            "Content-Type: application/x-www-form-urlencoded\r\n" .
                            "Content-Length: 7\r\n\r\n" .
                            'a=b&c=d',
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
 
         // Test GET parameters combination
@@ -347,7 +347,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            "Connection: close\r\n" .
                            "Accept-encoding: gzip, deflate\r\n" .
                            "User-Agent: Zend_OpenId\r\n\r\n",
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
 
         // Test GET and POST parameters combination
@@ -361,7 +361,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            "Content-Type: application/x-www-form-urlencoded\r\n" .
                            "Content-Length: 5\r\n\r\n" .
                            'c=x+y',
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
     }
 
@@ -404,7 +404,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                                'openid.dh_modulus=ANz5OguIOXLsDhmYmsWizjEOHTdxfo2Vcbt2I3MYZuYe91ouJ4mLBX%2BYkcLiemOcPym2CBRYHNOyyjmG0mg3BVd9RcLn5S3IHHoXGHblzqdLFEi%2F368Ygo79JRnxTkXjgmY0rxlJ5bU1zIKaSDuKdiI%2BXUkKJX8Fvf8W8vsixYOr&' .
                                'openid.dh_gen=Ag%3D%3D&' .
                                'openid.dh_consumer_public=GaLlROlBGgSopPzo1ewYISnnT4BUFBfIKlgDPoS9U41t5eQb8QYqgcw7%2BW3dSF1VlWcvJGR0UbZIEhJ3UrCs6p69q6sgl%2FOZ7P%2B17rme7OynqszA3pqD6MJoQVZ5Ht%2FR%2BjmMjK08ajcgYEZU1GG4U5k8eYbcFnje00%2FTGfjKY0I%3D',
-                               $http->getLastRequest()
+                $http->getLastRequest()
             );
 
             // Test OpenID 2.0 association request with DH-SHA256
@@ -425,7 +425,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                                'openid.dh_modulus=ANz5OguIOXLsDhmYmsWizjEOHTdxfo2Vcbt2I3MYZuYe91ouJ4mLBX%2BYkcLiemOcPym2CBRYHNOyyjmG0mg3BVd9RcLn5S3IHHoXGHblzqdLFEi%2F368Ygo79JRnxTkXjgmY0rxlJ5bU1zIKaSDuKdiI%2BXUkKJX8Fvf8W8vsixYOr&' .
                                'openid.dh_gen=Ag%3D%3D&' .
                                'openid.dh_consumer_public=GaLlROlBGgSopPzo1ewYISnnT4BUFBfIKlgDPoS9U41t5eQb8QYqgcw7%2BW3dSF1VlWcvJGR0UbZIEhJ3UrCs6p69q6sgl%2FOZ7P%2B17rme7OynqszA3pqD6MJoQVZ5Ht%2FR%2BjmMjK08ajcgYEZU1GG4U5k8eYbcFnje00%2FTGfjKY0I%3D',
-                               $http->getLastRequest()
+                $http->getLastRequest()
             );
 
             // Test OpenID 1.1 association response with DH-SHA1
@@ -940,7 +940,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            'openid.mode=check_authentication&' .
                            'openid.signed=assoc_handle%2Creturn_to%2Cclaimed_id%2Cidentity%2Cresponse_nonce%2Cmode%2Csigned&' .
                            'openid.sig=h%2F5AFD25NpzSok5tzHEGCVUkQSw%3D',
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
 
         $test->setResponse("HTTP/1.1 200 OK\r\n\r\nis_valid:true");
@@ -1000,7 +1000,7 @@ class Zend_OpenId_ConsumerTest extends PHPUnit\Framework\TestCase
                            'openid.sreg.nickname=test&' .
                            'openid.signed=ns%2Cassoc_handle%2Creturn_to%2Cclaimed_id%2Cidentity%2Cresponse_nonce%2Cmode%2Cns.sreg%2Csreg.nickname%2Csigned&' .
                            'openid.sig=h%2F5AFD25NpzSok5tzHEGCVUkQSw%3D',
-                           $http->getLastRequest()
+            $http->getLastRequest()
         );
 
         // invalidate_handle

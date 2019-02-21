@@ -279,11 +279,11 @@ class Zend_OpenId_Consumer
         }
 
         if ($this->_storage->getAssociationByHandle(
-                $params['openid_assoc_handle'],
-                $url,
-                $macFunc,
-                $secret,
-                $expires
+            $params['openid_assoc_handle'],
+            $url,
+            $macFunc,
+            $secret,
+            $expires
         )) {
             // Security fix - check the association bewteen op_endpoint and assoc_handle
             if (isset($params['openid_op_endpoint']) && $url !== $params['openid_op_endpoint']) {
@@ -462,11 +462,11 @@ class Zend_OpenId_Consumer
             return true;
         }
         if ($this->_storage->getAssociation(
-                $url,
-                $handle,
-                $macFunc,
-                $secret,
-                $expires
+            $url,
+            $handle,
+            $macFunc,
+            $secret,
+            $expires
         )) {
             $this->_cache[$url] = array($handle, $macFunc, $secret, $expires);
             return true;
@@ -491,8 +491,8 @@ class Zend_OpenId_Consumer
         $client = $this->_httpClient;
         if ($client === null) {
             $client = new Zend_Http_Client(
-                    $url,
-                    array(
+                $url,
+                array(
                         'maxredirects' => 4,
                         'timeout'      => 15,
                         'useragent'    => 'Zend_OpenId'
@@ -542,11 +542,11 @@ class Zend_OpenId_Consumer
 
         /* Check if we already have association in chace or storage */
         if ($this->_getAssociation(
-                $url,
-                $handle,
-                $macFunc,
-                $secret,
-                $expires
+            $url,
+            $handle,
+            $macFunc,
+            $secret,
+            $expires
         )) {
             return true;
         }
@@ -738,11 +738,11 @@ class Zend_OpenId_Consumer
     {
         $realId = $id;
         if ($this->_storage->getDiscoveryInfo(
-                $id,
-                $realId,
-                $server,
-                $version,
-                $expire
+            $id,
+            $realId,
+            $server,
+            $version,
+            $expire
         )) {
             $id = $realId;
             return true;
@@ -755,17 +755,17 @@ class Zend_OpenId_Consumer
 
         /* OpenID 2.0 (7.3) XRI and Yadis discovery */
         if (preg_match(
-                '/<meta[^>]*http-equiv=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?X-XRDS-Location[ \t]*[^"\']*\\1[^>]*content=(["\'])([^"\']+)\\2[^>]*\/?>/i',
-                $response,
-                $r
+            '/<meta[^>]*http-equiv=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?X-XRDS-Location[ \t]*[^"\']*\\1[^>]*content=(["\'])([^"\']+)\\2[^>]*\/?>/i',
+            $response,
+            $r
         )) {
             $XRDS     = $r[3];
             $version  = 2.0;
             $response = $this->_httpRequest($XRDS);
             if (preg_match(
-                    '/<URI>([^\t]*)<\/URI>/i',
-                    $response,
-                    $x
+                '/<URI>([^\t]*)<\/URI>/i',
+                $response,
+                $x
             )) {
                 $server = $x[1];
                 // $realId
@@ -777,30 +777,30 @@ class Zend_OpenId_Consumer
 
         /* HTML-based discovery */
         elseif (preg_match(
-                '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.provider[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
-                $response,
-                $r
+            '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.provider[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
+            $response,
+            $r
         )) {
             $version = 2.0;
             $server  = $r[3];
         } elseif (preg_match(
-                '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.provider[ \t]*[^"\']*\\3[^>]*\/?>/i',
-                $response,
-                $r
+            '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.provider[ \t]*[^"\']*\\3[^>]*\/?>/i',
+            $response,
+            $r
         )) {
             $version = 2.0;
             $server  = $r[2];
         } elseif (preg_match(
-                '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.server[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
-                $response,
-                $r
+            '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.server[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
+            $response,
+            $r
         )) {
             $version = 1.1;
             $server  = $r[3];
         } elseif (preg_match(
-                '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.server[ \t]*[^"\']*\\3[^>]*\/?>/i',
-                $response,
-                $r
+            '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.server[ \t]*[^"\']*\\3[^>]*\/?>/i',
+            $response,
+            $r
         )) {
             $version = 1.1;
             $server  = $r[2];
@@ -809,29 +809,29 @@ class Zend_OpenId_Consumer
         }
         if ($version >= 2.0) {
             if (preg_match(
-                    '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.local_id[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
-                    $response,
-                    $r
+                '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.local_id[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
+                $response,
+                $r
             )) {
                 $realId = $r[3];
             } elseif (preg_match(
-                    '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.local_id[ \t]*[^"\']*\\3[^>]*\/?>/i',
-                    $response,
-                    $r
+                '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid2.local_id[ \t]*[^"\']*\\3[^>]*\/?>/i',
+                $response,
+                $r
             )) {
                 $realId = $r[2];
             }
         } else {
             if (preg_match(
-                    '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.delegate[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
-                    $response,
-                    $r
+                '/<link[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.delegate[ \t]*[^"\']*\\1[^>]*href=(["\'])([^"\']+)\\2[^>]*\/?>/i',
+                $response,
+                $r
             )) {
                 $realId = $r[3];
             } elseif (preg_match(
-                    '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.delegate[ \t]*[^"\']*\\3[^>]*\/?>/i',
-                    $response,
-                    $r
+                '/<link[^>]*href=(["\'])([^"\']+)\\1[^>]*rel=(["\'])[ \t]*(?:[^ \t"\']+[ \t]+)*?openid.delegate[ \t]*[^"\']*\\3[^>]*\/?>/i',
+                $response,
+                $r
             )) {
                 $realId = $r[2];
             }
@@ -884,11 +884,11 @@ class Zend_OpenId_Consumer
             return false;
         }
         if (!$this->_getAssociation(
-                $server,
-                $handle,
-                $macFunc,
-                $secret,
-                $expires
+            $server,
+            $handle,
+            $macFunc,
+            $secret,
+            $expires
         )) {
             /* Use dumb mode */
             unset($handle);

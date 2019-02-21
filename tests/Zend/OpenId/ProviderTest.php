@@ -305,7 +305,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                    )
                                )
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->assertTrue($provider->denySite('http://www.test3.com/'));
@@ -319,7 +319,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                ),
                                'http://www.test3.com/' => false
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->assertTrue($provider->denySite('http://www.test1.com/'));
@@ -333,7 +333,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                ),
                                'http://www.test3.com/' => false
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->assertTrue($provider->denySite('http://www.test2.com/'));
@@ -343,7 +343,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                'http://www.test2.com/' => false,
                                'http://www.test3.com/' => false
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->_user->delLoggedInUser();
@@ -378,7 +378,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                    )
                                )
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->assertTrue($provider->delSite('http://www.test3.com/'));
@@ -391,7 +391,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                    )
                                )
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->assertTrue($provider->delSite('http://www.test1.com/'));
@@ -403,14 +403,14 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                    )
                                )
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->assertTrue($provider->delSite('http://www.test2.com/'));
         $this->assertSame(
             array(
                            ),
-                           $storage->getTrustedSites(self::USER)
+            $storage->getTrustedSites(self::USER)
         );
 
         $this->_user->delLoggedInUser();
@@ -442,7 +442,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                                    )
                                )
                            ),
-                           $provider->getTrustedSites()
+            $provider->getTrustedSites()
         );
 
         $this->_user->delLoggedInUser();

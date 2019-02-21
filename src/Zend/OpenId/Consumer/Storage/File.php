@@ -71,21 +71,21 @@ class Zend_OpenId_Consumer_Storage_File extends Zend_OpenId_Consumer_Storage
                 );
             }
         }
-        if (($f = fopen($this->_dir . '/assoc.lock', 'w+')) === null) {
+        if (($f = fopen($this->_dir . '/assoc.lock', 'w+')) === false) {
             throw new Zend_OpenId_Exception(
                 'Cannot create a lock file in the directory ' . $dir,
                 Zend_OpenId_Exception::ERROR_STORAGE
             );
         }
         fclose($f);
-        if (($f = fopen($this->_dir . '/discovery.lock', 'w+')) === null) {
+        if (($f = fopen($this->_dir . '/discovery.lock', 'w+')) === false) {
             throw new Zend_OpenId_Exception(
                 'Cannot create a lock file in the directory ' . $dir,
                 Zend_OpenId_Exception::ERROR_STORAGE
             );
         }
         fclose($f);
-        if (($f = fopen($this->_dir . '/nonce.lock', 'w+')) === null) {
+        if (($f = fopen($this->_dir . '/nonce.lock', 'w+')) === false) {
             throw new Zend_OpenId_Exception(
                 'Cannot create a lock file in the directory ' . $dir,
                 Zend_OpenId_Exception::ERROR_STORAGE

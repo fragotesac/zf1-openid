@@ -96,10 +96,10 @@ class Zend_OpenId_Provider
      */
     public function __construct(
         $loginUrl = null,
-                                $trustUrl = null,
-                                Zend_OpenId_Provider_User $user = null,
-                                Zend_OpenId_Provider_Storage $storage = null,
-                                $sessionTtl = 3600
+        $trustUrl = null,
+        Zend_OpenId_Provider_User $user = null,
+        Zend_OpenId_Provider_Storage $storage = null,
+        $sessionTtl = 3600
     ) {
         if ($loginUrl === null) {
             $loginUrl = Zend_OpenId::selfUrl() . '?openid.action=login';
@@ -327,7 +327,7 @@ class Zend_OpenId_Provider
     public function handle(
         $params = null,
         $extensions = null,
-                           Zend_Controller_Response_Abstract $response = null
+        Zend_Controller_Response_Abstract $response = null
     ) {
         if ($params === null) {
             if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -653,7 +653,7 @@ class Zend_OpenId_Provider
     public function respondToConsumer(
         $params,
         $extensions = null,
-                           Zend_Controller_Response_Abstract $response = null
+        Zend_Controller_Response_Abstract $response = null
     ) {
         $version = 1.1;
         if (isset($params['openid_ns']) &&
