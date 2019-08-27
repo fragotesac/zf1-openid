@@ -497,7 +497,7 @@ class Zend_OpenId_Consumer
                         'timeout'      => 15,
                         'useragent'    => 'Zend_OpenId'
                     )
-                );
+            );
         } else {
             $client->setUri($url);
         }

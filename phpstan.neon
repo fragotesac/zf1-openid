@@ -6,6 +6,7 @@ parameters:
         - %rootDir%/../../../vendor/*
         - %rootDir%/../../../tests/*
     bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+    inferPrivatePropertyTypeFromConstructor: true
     ignoreErrors:
         - '#Access to an undefined property Zend_Session_Namespace::\$.+\.#'
         - '#Variable \$bn_pub_key might not be defined\.#'
