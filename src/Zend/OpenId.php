@@ -663,7 +663,7 @@ class Zend_OpenId
      * key 'pub_key'.
      *
      * @param mixed $dh Diffie-Hellman key
-     * @return array
+     * @return array|null
      */
     public static function getDhKeyDetails($dh)
     {
@@ -675,6 +675,8 @@ class Zend_OpenId
         } else {
             return $dh['details'];
         }
+
+        return null;
     }
 
     /**

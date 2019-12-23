@@ -14,8 +14,5 @@ parameters:
         - '#Result of method Zend_OpenId_Consumer_Storage::addAssociation\(\) \(void\) is used\.#'
         - '#Method Zend_OpenId_Consumer::_addAssociation\(\) with return type void returns void but should not return anything\.#'
         -
-            message: '#Binary operation "\^" between string and string\|false results in an error\.#'
-            path: %currentWorkingDirectory%/src/Zend/OpenId/Consumer.php
-        -
             message: '#Binary operation "\+" between int and string results in an error\.#'
             path: %currentWorkingDirectory%/src/Zend/OpenId/Consumer.php
