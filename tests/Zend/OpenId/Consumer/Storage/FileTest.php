@@ -73,7 +73,7 @@ class Zend_OpenId_Consumer_Storage_FileTest extends PHPUnit\Framework\TestCase
         @rmdir($dirName);
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_tmpDir = dirname(__FILE__) . '/_files';
 
@@ -82,7 +82,7 @@ class Zend_OpenId_Consumer_Storage_FileTest extends PHPUnit\Framework\TestCase
         mkdir($this->_tmpDir);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         self::_rmDir($this->_tmpDir);
     }
@@ -113,7 +113,7 @@ class Zend_OpenId_Consumer_Storage_FileTest extends PHPUnit\Framework\TestCase
         }
         $this->assertTrue($ex instanceof Zend_OpenId_Exception);
         $this->assertSame(Zend_OpenId_Exception::ERROR_STORAGE, $ex->getCode());
-        $this->assertContains('Cannot access storage directory', $ex->getMessage());
+        $this->assertStringContainsString('Cannot access storage directory', $ex->getMessage());
         chmod($dir, 0777);
         $this->assertDirectoryNotExists($dir2);
         self::_rmDir($dir);

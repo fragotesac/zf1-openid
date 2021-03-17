@@ -65,7 +65,7 @@ class Zend_OpenId_Provider_Storage_FileTest extends PHPUnit\Framework\TestCase
         }
         $this->assertTrue($ex instanceof Zend_OpenId_Exception);
         $this->assertSame(Zend_OpenId_Exception::ERROR_STORAGE, $ex->getCode());
-        $this->assertContains('Cannot access storage directory', $ex->getMessage());
+        $this->assertStringContainsString('Cannot access storage directory', $ex->getMessage());
         chmod($dir, 0777);
         $this->assertDirectoryNotExists($dir2);
         @rmdir($dir);
@@ -173,7 +173,7 @@ class Zend_OpenId_Provider_Storage_FileTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($storage->addUser(self::USER, self::PASSWORD));
         $this->assertTrue($storage->addSite(self::USER, self::SITE1, true));
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(1, $trusted);
         reset($trusted);
         $this->assertSame(self::SITE1, key($trusted));
@@ -182,24 +182,24 @@ class Zend_OpenId_Provider_Storage_FileTest extends PHPUnit\Framework\TestCase
         $this->assertFalse($storage->addSite(self::USER, self::SITE1, true));
         $this->assertTrue($storage->addUser(self::USER, self::PASSWORD));
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(0, $trusted);
         $this->assertTrue($storage->addSite(self::USER, self::SITE1, self::SITE1));
         $this->assertTrue($storage->addSite(self::USER, self::SITE2, self::SITE2));
         $this->assertTrue($storage->addSite(self::USER, self::SITE1, self::USER));
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(2, $trusted);
         $this->assertSame(self::USER, $trusted[self::SITE1]);
         $this->assertSame(self::SITE2, $trusted[self::SITE2]);
         $this->assertTrue($storage->addSite(self::USER, self::SITE2, null));
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(1, $trusted);
         $this->assertSame(self::USER, $trusted[self::SITE1]);
         $this->assertTrue($storage->addSite(self::USER, self::SITE1, null));
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(0, $trusted);
         $this->assertTrue($storage->delUser(self::USER));
         $storage->delUser(self::USER);

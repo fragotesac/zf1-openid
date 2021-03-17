@@ -246,7 +246,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($provider->allowSite('http://www.test.com/'));
 
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(1, $trusted);
         reset($trusted);
         $this->assertSame('http://www.test.com/', key($trusted));
@@ -256,7 +256,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($provider->allowSite('http://www.test.com/'));
 
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(1, $trusted);
         reset($trusted);
         $this->assertSame('http://www.test.com/', key($trusted));
@@ -267,7 +267,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
         $this->assertTrue($provider->allowSite('http://www.test.com/', $sreg));
 
         $trusted = $storage->getTrustedSites(self::USER);
-        $this->assertInternalType('array', $trusted);
+        $this->assertIsArray($trusted);
         $this->assertCount(1, $trusted);
         reset($trusted);
         $this->assertSame('http://www.test.com/', key($trusted));
@@ -461,12 +461,12 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
 
         // SHA1
         $x = $provider->genSecret('sha1');
-        $this->assertInternalType('string', $x);
+        $this->assertIsString($x);
         $this->assertSame(20, strlen($x));
 
         // SHA256
         $x = $provider->genSecret('sha256');
-        $this->assertInternalType('string', $x);
+        $this->assertIsString($x);
         $this->assertSame(32, strlen($x));
 
         // invalid function

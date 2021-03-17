@@ -33,12 +33,12 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
 {
     private $_serverVariables;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_serverVariables = $_SERVER;
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $_SERVER = $this->_serverVariables;
     }
@@ -405,9 +405,9 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
         $this->assertSame(302, $response->getHttpResponseCode());
         $this->assertSame(array(), $response->getRawHeaders());
         $headers = $response->getHeaders();
-        $this->assertInternalType('array', $headers);
+        $this->assertIsArray($headers);
         $this->assertCount(1, $headers);
-        $this->assertInternalType('array', $headers[0]);
+        $this->assertIsArray($headers[0]);
         $this->assertCount(3, $headers[0]);
         $this->assertSame('Location', $headers[0]['name']);
         $this->assertSame('http://www.test.com/', $headers[0]['value']);
@@ -529,10 +529,10 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
     {
         $this->assertSame('', Zend_OpenId::randomBytes(0));
         $x = Zend_OpenId::randomBytes(1);
-        $this->assertInternalType('string', $x);
+        $this->assertIsString($x);
         $this->assertSame(1, strlen($x));
         $x = Zend_OpenId::randomBytes(1024);
-        $this->assertInternalType('string', $x);
+        $this->assertIsString($x);
         $this->assertSame(1024, strlen($x));
     }
 
@@ -591,7 +591,7 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
                 pack('H*', '09')
             );
             $dh_details = Zend_OpenId::getDhKeyDetails($dh);
-            $this->assertInternalType('array', $dh_details);
+            $this->assertIsArray($dh_details);
             $this->assertCount(4, $dh_details);
             $this->assertSame('0233', bin2hex($dh_details['p']));
             $this->assertSame('05', bin2hex($dh_details['g']));
@@ -604,7 +604,7 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
                 pack('H*', '09')
             );
             $dh_details = Zend_OpenId::getDhKeyDetails($dh);
-            $this->assertInternalType('array', $dh_details);
+            $this->assertIsArray($dh_details);
             $this->assertCount(4, $dh_details);
             $this->assertSame('0233', bin2hex($dh_details['p']));
             $this->assertSame('02', bin2hex($dh_details['g']));
@@ -616,13 +616,13 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
                 pack('H*', '02')
             );
             $dh_details = Zend_OpenId::getDhKeyDetails($dh);
-            $this->assertInternalType('array', $dh_details);
+            $this->assertIsArray($dh_details);
             $this->assertCount(4, $dh_details);
             $this->assertSame('0233', bin2hex($dh_details['p']));
             $this->assertSame('02', bin2hex($dh_details['g']));
-            $this->assertInternalType('string', $dh_details['priv_key']);
+            $this->assertIsString($dh_details['priv_key']);
             $this->assertTrue(strlen($dh_details['priv_key']) > 0);
-            $this->assertInternalType('string', $dh_details['pub_key']);
+            $this->assertIsString($dh_details['pub_key']);
             $this->assertTrue(strlen($dh_details['pub_key']) > 0);
         } catch (Zend_OpenId_Exception $e) {
             $this->markTestSkipped($e->getMessage());
