@@ -5,3 +5,4 @@
 /tests/Zend/OpenId/Provider/Storage/_files/*
 .php_cs.cache
 .phpunit.result.cache
+.php-cs-fixer.cache

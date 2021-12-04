@@ -2,7 +2,7 @@ parameters:
     level: 4
     paths:
         - ./
-    excludes_analyse:
+    excludePaths:
         - %rootDir%/../../../vendor/*
         - %rootDir%/../../../tests/*
     inferPrivatePropertyTypeFromConstructor: true
@@ -13,5 +13,5 @@ parameters:
         - '#Result of method Zend_OpenId_Consumer_Storage::addAssociation\(\) \(void\) is used\.#'
         - '#Method Zend_OpenId_Consumer::_addAssociation\(\) with return type void returns void but should not return anything\.#'
         -
-            message: '#Binary operation "\+" between int and string results in an error\.#'
+            message: '#Binary operation "\+" between int<1, max> and string results in an error\.#'
             path: %currentWorkingDirectory%/src/Zend/OpenId/Consumer.php

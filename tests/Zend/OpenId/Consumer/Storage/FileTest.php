@@ -59,7 +59,7 @@ class Zend_OpenId_Consumer_Storage_FileTest extends PHPUnit\Framework\TestCase
         $dir = opendir($dirName);
         while (($file = readdir($dir)) !== false) {
             if (is_dir($dirName . '/' . $file)) {
-                if ($file == '.'  ||  $file == '..') {
+                if ($file == '.' || $file == '..') {
                     continue;
                 }
 
@@ -115,7 +115,7 @@ class Zend_OpenId_Consumer_Storage_FileTest extends PHPUnit\Framework\TestCase
         $this->assertSame(Zend_OpenId_Exception::ERROR_STORAGE, $ex->getCode());
         $this->assertStringContainsString('Cannot access storage directory', $ex->getMessage());
         chmod($dir, 0777);
-        $this->assertDirectoryNotExists($dir2);
+        $this->assertDirectoryDoesNotExist($dir2);
         self::_rmDir($dir);
     }
 
