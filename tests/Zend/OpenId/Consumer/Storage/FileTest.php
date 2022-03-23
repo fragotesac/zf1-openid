@@ -111,7 +111,7 @@ class Zend_OpenId_Consumer_Storage_FileTest extends PHPUnit\Framework\TestCase
         } catch (Exception $e) {
             $ex = $e;
         }
-        $this->assertTrue($ex instanceof Zend_OpenId_Exception);
+        $this->assertInstanceOf(Zend_OpenId_Exception::class, $ex);
         $this->assertSame(Zend_OpenId_Exception::ERROR_STORAGE, $ex->getCode());
         $this->assertStringContainsString('Cannot access storage directory', $ex->getMessage());
         chmod($dir, 0777);
