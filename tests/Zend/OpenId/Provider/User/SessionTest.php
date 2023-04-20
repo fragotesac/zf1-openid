@@ -34,7 +34,8 @@ class Zend_OpenId_Provider_User_SessionTest extends PHPUnit\Framework\TestCase
     const USER1 = 'test_user1';
     const USER2 = 'test_user2';
 
-    private $_user;
+    protected $_user1;
+    protected $_user2;
 
     public function setUp(): void
     {

@@ -584,6 +584,10 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
      */
     public function testCreateDhKey()
     {
+        if (!extension_loaded('openssl') || substr(OPENSSL_VERSION_TEXT, 0, 9) === 'OpenSSL 3') {
+            $this->markTestSkipped('Openssl extension not installed, or incompatible version');
+        }
+
         try {
             $dh = Zend_OpenId::createDhKey(
                 pack('H*', '0233'),
@@ -635,6 +639,10 @@ class Zend_OpenIdTest extends PHPUnit\Framework\TestCase
      */
     public function testComputeDhSecret()
     {
+        if (!extension_loaded('openssl') || substr(OPENSSL_VERSION_TEXT, 0, 9) === 'OpenSSL 3') {
+            $this->markTestSkipped('Openssl extension not installed, or incompatible version');
+        }
+
         try {
             $alice = Zend_OpenId::createDhKey(
                 pack('H*', '0233'),

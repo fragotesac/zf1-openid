@@ -9,7 +9,7 @@
     "homepage": "http://framework.zend.com/",
     "license": "BSD-3-Clause",
     "require": {
-        "php": "^7.4 || ~8.0.0 || ~8.1.0",
+        "php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0",
         "diablomedia/zendframework1-exception": "^1.0.0",
         "diablomedia/zendframework1-crypt": "^1.0.0",
         "diablomedia/zendframework1-controller": "^1.0.0",
@@ -38,8 +38,8 @@
     ],
     "require-dev": {
         "phpunit/phpunit": "^9.5.10",
-        "phpstan/phpstan": "1.4.8",
-        "friendsofphp/php-cs-fixer": "3.8.0",
+        "phpstan/phpstan": "1.10.13",
+        "friendsofphp/php-cs-fixer": "3.16.0",
         "maglnet/composer-require-checker": "^3.0.0",
         "phpro/grumphp-shim": "^1.5.0"
     },
@@ -60,5 +60,10 @@
         "ext-mbstring": "If extension is loaded, mb_strlen will be used instead of strlen",
         "ext-bcmath": "If loaded, bcmath functions will be used",
         "ext-gmp": "If loaded, gmp functions will be used"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpro/grumphp-shim": true
+        }
     }
 }

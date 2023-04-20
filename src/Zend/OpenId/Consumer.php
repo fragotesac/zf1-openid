@@ -259,7 +259,7 @@ class Zend_OpenId_Consumer
             if (empty($params['openid_op_endpoint'])) {
                 $this->_setError('Missing openid.op_endpoint');
                 return false;
-            /* OpenID 2.0 (11.3) Checking the Nonce */
+                /* OpenID 2.0 (11.3) Checking the Nonce */
             } elseif (!$this->_storage->isUniqueNonce($params['openid_op_endpoint'], $params['openid_response_nonce'])) {
                 $this->_setError('Duplicate openid.response_nonce');
                 return false;

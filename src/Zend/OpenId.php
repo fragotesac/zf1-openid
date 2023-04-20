@@ -520,7 +520,7 @@ class Zend_OpenId
      */
     public static function hashHmac($macFunc, $data, $secret)
     {
-//        return Zend_Crypt_Hmac::compute($secret, $macFunc, $data, Zend_Crypt_Hmac::BINARY);
+        //        return Zend_Crypt_Hmac::compute($secret, $macFunc, $data, Zend_Crypt_Hmac::BINARY);
         if (function_exists('hash_hmac')) {
             return hash_hmac($macFunc, $data, $secret, true);
         } else {

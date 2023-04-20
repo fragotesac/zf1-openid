@@ -6,6 +6,7 @@ parameters:
         - %rootDir%/../../../vendor/*
         - %rootDir%/../../../tests/*
     inferPrivatePropertyTypeFromConstructor: true
+    treatPhpDocTypesAsCertain: false
     ignoreErrors:
         - '#Access to an undefined property Zend_Session_Namespace::\$.+\.#'
         - '#Variable \$bn_pub_key might not be defined\.#'
@@ -14,4 +15,8 @@ parameters:
         - '#Method Zend_OpenId_Consumer::_addAssociation\(\) with return type void returns void but should not return anything\.#'
         -
             message: '#Binary operation "\+" between int<1, max> and string results in an error\.#'
-            path: %currentWorkingDirectory%/src/Zend/OpenId/Consumer.php
+            path: ./src/Zend/OpenId/Consumer.php
+        -
+            message: '#Left side of && is always true\.#'
+            path: ./src/Zend/OpenId/Consumer.php
+            count: 1
