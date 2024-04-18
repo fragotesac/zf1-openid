@@ -12,7 +12,7 @@ parameters:
         - '#Variable \$bn_pub_key might not be defined\.#'
         # Abstract returns void, but File returns bool
         - '#Result of method Zend_OpenId_Consumer_Storage::addAssociation\(\) \(void\) is used\.#'
-        - '#Method Zend_OpenId_Consumer::_addAssociation\(\) with return type void returns void but should not return anything\.#'
+        - '#Method Zend_OpenId_Consumer::_addAssociation\(\) with return type void returns null but should not return anything\.#'
         -
             message: '#Binary operation "\+" between int<1, max> and string results in an error\.#'
             path: ./src/Zend/OpenId/Consumer.php
